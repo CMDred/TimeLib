@@ -1,0 +1,1 @@
+$schedule function unixlib:zprivate/timer_1d $(NextDayStart)t
