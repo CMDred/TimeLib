@@ -42,5 +42,12 @@ From CMDred:
 - **SilicatYT:** Unix Lib
 - **BananaRedPanda:** Base64 Decoder, Consulting & Help with formulas
 
+## Good to know
+- **/tick** is NOT supported. Time desyncs with **/tick rate** or **/tick sprint**, and the **'Daylight Savings Time Checks'** setting breaks entirely. Time always has to be manually updated after using this command.
+- When starting the server or world, it takes a second for time to update. Any checks that happen during that time are wrong.
+- When time is updated (Through **/function unixlib:unix/update**, when changing settings or when the world is reloaded/restarted), the new time will only display 2 ticks after.
+- If your Data Pack checks for a UnixLib score before UnixLib's functions have run, your Data Pack will get the previous tick's scores. To avoid that, make sure that UnixLib always runs first.
+- If your Data Pack uses a forceloaded chunk at **29999983 29999983**, there may be collision.
+
 ## License
 As per the MIT License, you are allowed to redistribute, modify and use UnixLib as long as we are credited for the original work.
