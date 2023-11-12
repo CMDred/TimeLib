@@ -11,8 +11,7 @@ A Minecraft Data Pack library that lets you get the real life date & time ingame
 
 ## How to use
 ### Requirements
-- Minecraft 1.20.3 or newer
-- **gamerule sendCommandFeedback** set to **true** (At least whenever the time updates. So on reload, server/world start and when changing settings.)
+- Minecraft 23w45a or newer
 
 UnixLib automatically keeps track of the date & time for you. For that to work, you first need to configure the settings to your personal taste. To access the settings, click the message that appears in chat after reloading or manually run **/function unixlib:unix/settings**.
 ### Settings
