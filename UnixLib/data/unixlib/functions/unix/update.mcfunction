@@ -6,7 +6,7 @@
 ## Note: It runs automatically on server start,       ##
 ##       pause (Singleplayer) and every hour          ##
 ##       (If the setting is enabled).                 ##
-## Note: Updating can take up to 2 seconds if the     ##
+## Note: Updating can take 2 ticks if the             ##
 ##       "Multiplayer" setting is enabled, but is     ##
 ##       instant in "Singleplayer" with minimal       ##
 ##       performance cost.                            ##

@@ -1,3 +1,6 @@
+#Tellraw
+tellraw @a [{"text":"🕒 UnixLib >> ","color":"#2DE1E1"},{"text":"Installed UnixLib (v0.9.4)","color":"white"}]
+
 #Init
 scoreboard players set #UnixLib_Init UnixLib 1
 

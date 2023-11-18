@@ -1,11 +1,10 @@
 #Get Unix Timestamp
-execute store success score #UnixLib_Check UnixLib run data modify storage unixlib:zprivate b64.data set from block 29999983 0 29999983 Items[0].tag.SkullOwner.Properties.textures[0].Value
-execute if score #UnixLib_Check UnixLib matches 0 run scoreboard players operation #UnixLib UnixLib_UnixTime = #UnixLib_Previous UnixLib_UnixTime
-execute if score #UnixLib_Check UnixLib matches 1 run data modify storage unixlib:zprivate b64.input.0 set string storage unixlib:zprivate b64.data 24 28
-execute if score #UnixLib_Check UnixLib matches 1 run data modify storage unixlib:zprivate b64.input.1 set string storage unixlib:zprivate b64.data 28 32
-execute if score #UnixLib_Check UnixLib matches 1 run data modify storage unixlib:zprivate b64.input.2 set string storage unixlib:zprivate b64.data 32 36
-execute if score #UnixLib_Check UnixLib matches 1 run data modify storage unixlib:zprivate b64.input.3 set string storage unixlib:zprivate b64.data 36 40
-execute if score #UnixLib_Check UnixLib matches 1 run function unixlib:zprivate/update/b64/decode with storage unixlib:zprivate b64.input
+data modify storage unixlib:zprivate b64.data set from block 29999983 0 29999983 Items[0].tag.SkullOwner.Properties.textures[0].Value
+data modify storage unixlib:zprivate b64.input.0 set string storage unixlib:zprivate b64.data 24 28
+data modify storage unixlib:zprivate b64.input.1 set string storage unixlib:zprivate b64.data 28 32
+data modify storage unixlib:zprivate b64.input.2 set string storage unixlib:zprivate b64.data 32 36
+data modify storage unixlib:zprivate b64.input.3 set string storage unixlib:zprivate b64.data 36 40
+function unixlib:zprivate/update/b64/decode with storage unixlib:zprivate b64.input
 item replace block 29999983 0 29999983 container.0 with air
 
 #Update Unix Timestamp with information from the Command block (Part 3: Check if Command block is behind by at least 1 hour. Minimum of 1 hour because of daylight savings time)

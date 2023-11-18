@@ -49,5 +49,10 @@ From CMDred:
 - If your Data Pack checks for a UnixLib score before UnixLib's functions have run, your Data Pack will get the previous tick's scores. To avoid that, make sure that UnixLib always runs first.
 - If your Data Pack uses a forceloaded chunk at **29999983 29999983**, there may be collision.
 
+## Uninstalling & Upgrading
+- If you want to uninstall UnixLib, run **/function unixlib:uninstall**.
+- In order to remove unused elements, you must first uninstall the current version before upgrading to a newer one.
+- The **'Constant'** objective, the **Shulker Box at 29999983 0 29999983** and the **Forceloaded Chunk** will not be automatically removed to avoid compatibility issues with other Data Packs that use those.
+
 ## License
 As per the MIT License, you are allowed to redistribute, modify and use UnixLib as long as we are credited for the original work.
