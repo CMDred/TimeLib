@@ -5,12 +5,12 @@ scoreboard players reset * UnixLib_TotalWorldTime
 scoreboard players operation #UnixLib_Calc UnixLib = #UnixLib UnixLib_Tick
 scoreboard players operation #UnixLib_Calc UnixLib /= #c20 Constant
 scoreboard players operation #UnixLib UnixLib_Second += #UnixLib_Calc UnixLib
+scoreboard players operation #UnixLib UnixLib_UnixTime += #UnixLib_Calc UnixLib
 scoreboard players operation #UnixLib UnixLib_Tick %= #c20 Constant
 
 scoreboard players operation #UnixLib_Calc UnixLib = #UnixLib UnixLib_Second
 scoreboard players operation #UnixLib_Calc UnixLib /= #c60 Constant
 scoreboard players operation #UnixLib UnixLib_Minute += #UnixLib_Calc UnixLib
-scoreboard players operation #UnixLib UnixLib_UnixTime += #UnixLib_Calc UnixLib
 scoreboard players operation #UnixLib UnixLib_Second %= #c60 Constant
 
 scoreboard players operation #UnixLib_Calc UnixLib = #UnixLib UnixLib_Minute
