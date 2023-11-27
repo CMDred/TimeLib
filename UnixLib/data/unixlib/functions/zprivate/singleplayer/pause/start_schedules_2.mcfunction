@@ -1,27 +1,27 @@
 #Calculate macros for schedules
-scoreboard players set #UnixLib_NextSecondStart UnixLib_Tick 20
-$scoreboard players remove #UnixLib_NextSecondStart UnixLib_Tick $(Tick)
-execute store result storage unixlib:zprivate calc.Result.NextSecondStart byte 1 run scoreboard players get #UnixLib_NextSecondStart UnixLib_Tick
+scoreboard players set #TimeLib.NextSecondStart TimeLib.Tick 20
+$scoreboard players remove #TimeLib.NextSecondStart TimeLib.Tick $(Tick)
+execute store result storage timelib:zprivate calc.Result.NextSecondStart byte 1 run scoreboard players get #TimeLib.NextSecondStart TimeLib.Tick
 
-scoreboard players set #UnixLib_NextMinuteStart UnixLib_Second 1180
-scoreboard players operation #UnixLib_NextMinuteStart UnixLib_Second += #UnixLib_NextSecondStart UnixLib_Tick
-$scoreboard players set #UnixLib_CommandBlock UnixLib_Second $(Second)
-scoreboard players operation #UnixLib_Calc UnixLib = #UnixLib_CommandBlock UnixLib_Second
-scoreboard players operation #UnixLib_Calc UnixLib *= #c20 Constant
-execute store result storage unixlib:zprivate calc.Result.NextMinuteStart short 1 run scoreboard players operation #UnixLib_NextMinuteStart UnixLib_Second -= #UnixLib_Calc UnixLib
+scoreboard players set #TimeLib.NextMinuteStart TimeLib.Second 1180
+scoreboard players operation #TimeLib.NextMinuteStart TimeLib.Second += #TimeLib.NextSecondStart TimeLib.Tick
+$scoreboard players set #TimeLib.CommandBlock TimeLib.Second $(Second)
+scoreboard players operation #TimeLib.Calc TimeLib = #TimeLib.CommandBlock TimeLib.Second
+scoreboard players operation #TimeLib.Calc TimeLib *= #c20 Constant
+execute store result storage timelib:zprivate calc.Result.NextMinuteStart short 1 run scoreboard players operation #TimeLib.NextMinuteStart TimeLib.Second -= #TimeLib.Calc TimeLib
 
-scoreboard players set #UnixLib_NextHourStart UnixLib_Second 70800
-scoreboard players operation #UnixLib_NextHourStart UnixLib_Second += #UnixLib_NextMinuteStart UnixLib_Second
-$scoreboard players set #UnixLib_CommandBlock UnixLib_Minute $(Minute)
-scoreboard players operation #UnixLib_Calc UnixLib = #UnixLib_CommandBlock UnixLib_Minute
-scoreboard players operation #UnixLib_Calc UnixLib *= #c1200 Constant
-execute store result storage unixlib:zprivate calc.Result.NextHourStart int 1 run scoreboard players operation #UnixLib_NextHourStart UnixLib_Second -= #UnixLib_Calc UnixLib
+scoreboard players set #TimeLib.NextHourStart TimeLib.Second 70800
+scoreboard players operation #TimeLib.NextHourStart TimeLib.Second += #TimeLib.NextMinuteStart TimeLib.Second
+$scoreboard players set #TimeLib.CommandBlock TimeLib.Minute $(Minute)
+scoreboard players operation #TimeLib.Calc TimeLib = #TimeLib.CommandBlock TimeLib.Minute
+scoreboard players operation #TimeLib.Calc TimeLib *= #c1200 Constant
+execute store result storage timelib:zprivate calc.Result.NextHourStart int 1 run scoreboard players operation #TimeLib.NextHourStart TimeLib.Second -= #TimeLib.Calc TimeLib
 
-scoreboard players set #UnixLib_NextDayStart UnixLib_Second 1656000
-scoreboard players operation #UnixLib_NextDayStart UnixLib_Second += #UnixLib_NextHourStart UnixLib_Second
-$scoreboard players set #UnixLib_CommandBlock UnixLib_Hour $(Hour)
-scoreboard players operation #UnixLib_Calc UnixLib = #UnixLib_CommandBlock UnixLib_Hour
-scoreboard players operation #UnixLib_Calc UnixLib *= #c72000 Constant
-execute store result storage unixlib:zprivate calc.Result.NextDayStart int 1 run scoreboard players operation #UnixLib_NextDayStart UnixLib_Second -= #UnixLib_Calc UnixLib
+scoreboard players set #TimeLib.NextDayStart TimeLib.Second 1656000
+scoreboard players operation #TimeLib.NextDayStart TimeLib.Second += #TimeLib.NextHourStart TimeLib.Second
+$scoreboard players set #TimeLib.CommandBlock TimeLib.Hour $(Hour)
+scoreboard players operation #TimeLib.Calc TimeLib = #TimeLib.CommandBlock TimeLib.Hour
+scoreboard players operation #TimeLib.Calc TimeLib *= #c72000 Constant
+execute store result storage timelib:zprivate calc.Result.NextDayStart int 1 run scoreboard players operation #TimeLib.NextDayStart TimeLib.Second -= #TimeLib.Calc TimeLib
 
-function unixlib:zprivate/singleplayer/pause/start_schedules_3 with storage unixlib:zprivate calc.Result
+function timelib:zprivate/singleplayer/pause/start_schedules_3 with storage timelib:zprivate calc.Result

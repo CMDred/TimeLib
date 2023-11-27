@@ -1,11 +1,11 @@
 playsound minecraft:ui.button.click master @s ~ ~ ~ 1 2 1
-execute if score #UnixLib_Settings_RealtimeTracking UnixLib matches 2 run return run tellraw @s [{"text":"🕒 UnixLib >> ","color":"#2DE1E1"},{"text":"This setting is already selected.","color":"red"}]
-scoreboard players set #UnixLib_Settings_RealtimeTracking UnixLib 2
+execute if score #TimeLib.Settings_RealtimeTracking TimeLib matches 2 run return run tellraw @s [{"text":"🕒 TimeLib >> ","color":"#2DE1E1"},{"text":"This setting is already selected.","color":"red"}]
+scoreboard players set #TimeLib.Settings_RealtimeTracking TimeLib 2
 tellraw @s "\n\n\n\n\n\n\n\n\n\n\n\n\n"
-function unixlib:unix/settings
-tellraw @s ["",{"text":"🕒 UnixLib >> ","color":"#2DE1E1"},{"text":"Successfully selected 'Multiplayer'."}]
-schedule clear unixlib:zprivate/singleplayer/pause/detect
-schedule clear unixlib:zprivate/singleplayer/timer_1s
-scoreboard objectives remove UnixLib_TotalWorldTime
-scoreboard objectives remove UnixLib_Tick
-function unixlib:unix/update
+function timelib:util/settings
+tellraw @s ["",{"text":"🕒 TimeLib >> ","color":"#2DE1E1"},{"text":"Successfully selected 'Multiplayer'."}]
+schedule clear timelib:zprivate/singleplayer/pause/detect
+schedule clear timelib:zprivate/singleplayer/timer_1s
+scoreboard objectives remove TimeLib.TotalWorldTime
+scoreboard objectives remove TimeLib.Tick
+function timelib:util/update

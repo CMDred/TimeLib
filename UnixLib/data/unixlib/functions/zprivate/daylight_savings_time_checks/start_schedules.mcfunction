@@ -1,1 +1,1 @@
-$schedule function unixlib:zprivate/timer_1d $(NextDayStart)t
+$schedule function timelib:zprivate/timer_1d $(NextDayStart)t

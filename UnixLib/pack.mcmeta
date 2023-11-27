@@ -1,6 +1,6 @@
 {
     "pack": {
-        "pack_format": 24,
-        "description": "UnixLib - By CMDred"
+        "pack_format": 26,
+        "description": "Data Pack Utility for getting the real life date & time efficiently. Made by CMDred."
     }
 }

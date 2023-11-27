@@ -1,2 +1,2 @@
-scoreboard players set #UnixLib UnixLib_Day 1
-scoreboard players add #UnixLib UnixLib_Month 1
+scoreboard players set #TimeLib TimeLib.Day 1
+scoreboard players add #TimeLib TimeLib.Month 1

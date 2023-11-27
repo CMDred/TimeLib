@@ -1,4 +1,4 @@
-scoreboard players add #UnixLib UnixLib_Second 1
-scoreboard players add #UnixLib UnixLib_UnixTime 1
-scoreboard players remove #UnixLib UnixLib_Tick 20
-schedule function unixlib:zprivate/singleplayer/timer_1s 1s
+scoreboard players add #TimeLib TimeLib.Second 1
+scoreboard players add #TimeLib TimeLib.UnixTime 1
+scoreboard players remove #TimeLib TimeLib.Tick 20
+schedule function timelib:zprivate/singleplayer/timer_1s 1s
