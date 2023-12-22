@@ -1,5 +1,5 @@
 #Tellraw
-tellraw @a [{"text":"🕒 TimeLib >> ","color":"#2DE1E1"},{"text":"Installed TimeLib (v1.0)","color":"white"}]
+tellraw @a [{"text":"🕒 TimeLib >> ","color":"#2DE1E1"},{"text":"Installed TimeLib (v1.1)","color":"white"}]
 
 #Init
 scoreboard players set #TimeLib.Init TimeLib 1
@@ -13,9 +13,6 @@ scoreboard objectives add TimeLib.Day dummy
 scoreboard objectives add TimeLib.Hour dummy
 scoreboard objectives add TimeLib.Minute dummy
 scoreboard objectives add TimeLib.Second dummy
-
-scoreboard objectives add TimeLib.TimeZoneOffset dummy
-scoreboard objectives add TimeLib.CommandBlockOffset dummy
 
 scoreboard objectives add Constant dummy
 scoreboard players set #c4 Constant 4
@@ -31,8 +28,8 @@ scoreboard players set #c72000 Constant 72000
 scoreboard players set #c86400 Constant 86400
 
 #Settings
-scoreboard players set #TimeLib TimeLib.CommandBlockOffset 0
-scoreboard players set #TimeLib TimeLib.TimeZoneOffset 0
+scoreboard players set #TimeLib.Settings.CommandBlockOffset TimeLib 0
+scoreboard players set #TimeLib.Settings.TimeZoneOffset TimeLib 0
 function timelib:zprivate/settings/realtime_tracking_singleplayer
 function timelib:zprivate/settings/daylight_savings_time_checks_hourly
 

@@ -16,7 +16,7 @@ scoreboard players operation #TimeLib.CommandBlock TimeLib.UnixTime += #TimeLib.
 scoreboard players operation #TimeLib.CommandBlock TimeLib.UnixTime += #TimeLib.CommandBlock TimeLib.Second
 
 scoreboard players operation #TimeLib.Calc TimeLib.UnixTime = #TimeLib TimeLib.UnixTime
-scoreboard players operation #TimeLib.Calc TimeLib.UnixTime += #TimeLib TimeLib.CommandBlockOffset
+scoreboard players operation #TimeLib.Calc TimeLib.UnixTime += #TimeLib.Settings.CommandBlockOffset TimeLib
 scoreboard players operation #TimeLib.Calc TimeLib.UnixTime %= #c86400 Constant
 
 scoreboard players operation #TimeLib TimeLib.UnixTime -= #TimeLib.Calc TimeLib.UnixTime

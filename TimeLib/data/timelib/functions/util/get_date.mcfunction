@@ -10,8 +10,8 @@
 
 #Add Timezone Offset
 scoreboard players operation #TimeLib.Calc TimeLib.UnixTime = #TimeLib.Input TimeLib
-scoreboard players operation #TimeLib.Calc TimeLib.UnixTime += #TimeLib TimeLib.CommandBlockOffset
-scoreboard players operation #TimeLib.Calc TimeLib.UnixTime += #TimeLib TimeLib.TimeZoneOffset
+scoreboard players operation #TimeLib.Calc TimeLib.UnixTime += #TimeLib.Settings.CommandBlockOffset TimeLib
+scoreboard players operation #TimeLib.Calc TimeLib.UnixTime += #TimeLib.Settings.TimeZoneOffset TimeLib
 
 #Get Days Total
 scoreboard players operation #TimeLib.Calc TimeLib = #TimeLib.Calc TimeLib.UnixTime

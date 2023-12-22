@@ -6,7 +6,7 @@ execute if score #TimeLib TimeLib.Uninstall matches 0 run return run scoreboard 
 scoreboard objectives remove TimeLib.Uninstall
 
 #Tellraw
-tellraw @a [{"text":"🕒 TimeLib >> ","color":"#2DE1E1"},{"text":"Uninstalled TimeLib (v1.0)","color":"white"},"\n",{"text":"🕒 TimeLib >> ","color":"#2DE1E1"},{"text":"⚠ Due to compatibility reasons, the 'Constant' scoreboard objective, the shulker box at 29999983 0 29999983 and the forceloaded chunk at 29999983 29999983 were not automatically removed!","color":"red"}]
+tellraw @a [{"text":"🕒 TimeLib >> ","color":"#2DE1E1"},{"text":"Uninstalled TimeLib (v1.1)","color":"white"},"\n",{"text":"🕒 TimeLib >> ","color":"#2DE1E1"},{"text":"⚠ Due to compatibility reasons, the 'Constant' scoreboard objective, the shulker box at 29999983 0 29999983 and the forceloaded chunk at 29999983 29999983 were not automatically removed!","color":"red"}]
 
 #Remove Scoreboards
 scoreboard objectives remove TimeLib.UnixTime
@@ -20,9 +20,6 @@ scoreboard objectives remove TimeLib.Second
 
 scoreboard objectives remove TimeLib.Tick
 scoreboard objectives remove TimeLib.TotalWorldTime
-
-scoreboard objectives remove TimeLib.TimeZoneOffset
-scoreboard objectives remove TimeLib.CommandBlockOffset
 
 #Remove Fake Players
 scoreboard players reset #TimeLib.Init
@@ -38,6 +35,8 @@ scoreboard players reset #TimeLib.NextHourStart
 scoreboard players reset #TimeLib.NextDayStart
 scoreboard players reset #TimeLib.PlayerHead
 scoreboard players reset #TimeLib.CommandBlock
+scoreboard players reset #TimeLib.Settings.CommandBlockOffset
+scoreboard players reset #TimeLib.Settings.TimeZoneOffset
 scoreboard players reset #TimeLib.Settings.RealtimeTracking
 scoreboard players reset #TimeLib.Settings.SavingsTimeChecks
 
