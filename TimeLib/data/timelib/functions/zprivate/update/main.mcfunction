@@ -23,6 +23,7 @@ scoreboard players operation #TimeLib TimeLib.UnixTime -= #TimeLib.Calc TimeLib.
 scoreboard players operation #TimeLib TimeLib.UnixTime += #TimeLib.CommandBlock TimeLib.UnixTime
 scoreboard players operation #TimeLib.Check TimeLib = #TimeLib.CommandBlock TimeLib.UnixTime
 scoreboard players operation #TimeLib.Check TimeLib -= #TimeLib.Calc TimeLib.UnixTime
+scoreboard players operation #TimeLib.Check TimeLib -= #TimeLib.Settings.TimeZoneOffset TimeLib
 execute if score #TimeLib.Check TimeLib matches ..-3601 run scoreboard players add #TimeLib TimeLib.UnixTime 86400
 
 #Get Date using the Unix Timestamp
