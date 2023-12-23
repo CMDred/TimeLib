@@ -2,8 +2,8 @@
 A Minecraft Data Pack library that lets you get the real life date & time ingame. For inquiries, please contact **@silicatYT** on Discord.
 
 ## Features
-- Get the real life date & time
-  - Year, Month, Day, Week Day, Hour, Minute, Second & the Unix Timestamp.
+- Get the real life date & time:
+  - Year, Month, Day, Week Day, Hour, Minute, Second & the Unix Timestamp
 - Support for different timezones & daylight savings time.
 - Any values provided have **tick accuracy**.
 - Very **high efficiency**.
@@ -40,6 +40,7 @@ From CMDred:
 - **BananaRedPanda:** Base64 Decoder, Consulting & Help with formulas
 
 ## Good to know
+- TimeLib requires an internet connection.
 - **/tick** is NOT supported. Time desyncs with **/tick rate** or **/tick sprint**, and the **'Daylight Savings Time Checks'** setting breaks entirely. Time always has to be manually updated after using this command.
 - When starting the server or world, it takes a second for time to update. Any checks that happen during that time are wrong.
 - When time is updated (Through **/function timelib:util/update**, when changing settings or when the world is reloaded/restarted), the new time will only display 2 ticks after.
