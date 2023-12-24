@@ -15,15 +15,15 @@ scoreboard players operation #TimeLib.Calc TimeLib *= #c60 Constant
 scoreboard players operation #TimeLib.CommandBlock TimeLib.UnixTime += #TimeLib.Calc TimeLib
 scoreboard players operation #TimeLib.CommandBlock TimeLib.UnixTime += #TimeLib.CommandBlock TimeLib.Second
 
+scoreboard players operation #TimeLib TimeLib.UnixTime += #TimeLib.Settings.TimeZoneOffset TimeLib
 scoreboard players operation #TimeLib.Calc TimeLib.UnixTime = #TimeLib TimeLib.UnixTime
-scoreboard players operation #TimeLib.Calc TimeLib.UnixTime += #TimeLib.Settings.CommandBlockOffset TimeLib
 scoreboard players operation #TimeLib.Calc TimeLib.UnixTime %= #c86400 Constant
 
 scoreboard players operation #TimeLib TimeLib.UnixTime -= #TimeLib.Calc TimeLib.UnixTime
 scoreboard players operation #TimeLib TimeLib.UnixTime += #TimeLib.CommandBlock TimeLib.UnixTime
 scoreboard players operation #TimeLib.Check TimeLib = #TimeLib.CommandBlock TimeLib.UnixTime
 scoreboard players operation #TimeLib.Check TimeLib -= #TimeLib.Calc TimeLib.UnixTime
-scoreboard players operation #TimeLib.Check TimeLib -= #TimeLib.Settings.TimeZoneOffset TimeLib
+scoreboard players operation #TimeLib.Check TimeLib -= #TimeLib.Settings.CommandBlockOffset TimeLib
 execute if score #TimeLib.Check TimeLib matches ..-3601 run scoreboard players add #TimeLib TimeLib.UnixTime 86400
 
 #Get Date using the Unix Timestamp
