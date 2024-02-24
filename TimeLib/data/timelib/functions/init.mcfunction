@@ -1,5 +1,5 @@
 #Tellraw
-tellraw @a [{"text":"🕒 TimeLib >> ","color":"#2DE1E1"},{"text":"Installed TimeLib (v1.1.3)","color":"white"}]
+tellraw @a [{"text":"🕒 TimeLib >> ","color":"#2DE1E1"},{"text":"Installed TimeLib (v1.1.4)","color":"white"}]
 
 #Init
 scoreboard players set #TimeLib.Init TimeLib 1
