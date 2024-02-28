@@ -30,7 +30,7 @@ schedule clear timelib:zprivate/update/setup/tick_loop
 execute store result score #TimeLib.GameruleCheck TimeLib run gamerule sendCommandFeedback
 execute if score #TimeLib.GameruleCheck TimeLib matches 0 run gamerule sendCommandFeedback true
 
-item replace block 29999983 0 29999983 container.0 with minecraft:player_head{SkullOwner:"SilicatYT"}
+item replace block 29999983 0 29999983 container.0 with minecraft:player_head[minecraft:profile={name:"SilicatYT"}]
 execute as @a[limit=1] store success score #TimeLib.PlayerHead TimeLib run loot replace block 29999983 0 29999983 container.0 loot timelib:fill_player_head
 setblock 29999983 1 29999983 minecraft:command_block{TrackOutput:1b,auto:1b,Command:"."}
 setblock 29999983 2 29999983 minecraft:repeating_command_block{TrackOutput:1b,auto:1b,Command:"."}

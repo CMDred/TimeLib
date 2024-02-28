@@ -1,5 +1,5 @@
 #Start schedules for seconds, minutes, hours and days
-fill 29999983 1 29999983 29999983 2 29999983 air
+fill 29999983 1 29999983 29999983 2 29999983 minecraft:air
 scoreboard players set #TimeLib.CommandBlock TimeLib 2
 scoreboard players reset #TimeLib TimeLib.Tick
 execute if score #TimeLib.GameruleCheck TimeLib matches 0 run gamerule sendCommandFeedback false

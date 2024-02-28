@@ -1,13 +1,13 @@
 #Get Unix Timestamp
-data modify storage timelib:zprivate b64.data set from block 29999983 0 29999983 Items[0].tag.SkullOwner.Properties.textures[0].Value
+data modify storage timelib:zprivate b64.data set from block 29999983 0 29999983 Items[0].components."minecraft:profile".properties[].value
 data modify storage timelib:zprivate b64.input.0 set string storage timelib:zprivate b64.data 24 28
 data modify storage timelib:zprivate b64.input.1 set string storage timelib:zprivate b64.data 28 32
 data modify storage timelib:zprivate b64.input.2 set string storage timelib:zprivate b64.data 32 36
 data modify storage timelib:zprivate b64.input.3 set string storage timelib:zprivate b64.data 36 40
 function timelib:zprivate/update/b64/decode with storage timelib:zprivate b64.input
-item replace block 29999983 0 29999983 container.0 with air
+item replace block 29999983 0 29999983 container.0 with minecraft:air
 
-#Update Unix Timestamp with information from the Command block (Part 3: Check if Command block is behind by at least 1 hour. Minimum of 1 hour because of daylight savings time)
+#Update Unix Timestamp with information from the Command block (Section 3: Check if Command block is behind by at least 1 hour. Minimum of 1 hour because of daylight savings time)
 scoreboard players operation #TimeLib.CommandBlock TimeLib.UnixTime = #TimeLib.CommandBlock TimeLib.Hour
 scoreboard players operation #TimeLib.CommandBlock TimeLib.UnixTime *= #c3600 Constant
 scoreboard players operation #TimeLib.Calc TimeLib = #TimeLib.CommandBlock TimeLib.Minute
