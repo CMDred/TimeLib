@@ -1,4 +1,4 @@
-#Set schedules
+# Set schedules
 $schedule function timelib:zprivate/singleplayer/timer_1s $(NextSecondStart)t
 $schedule function timelib:zprivate/timer_1min $(NextMinuteStart)t
 $execute if score #TimeLib.Settings.SavingsTimeChecks TimeLib matches 1 run schedule function timelib:zprivate/timer_1h $(NextHourStart)t

@@ -1,4 +1,4 @@
-#Calculate macros for schedules
+# Calculate macros for schedules
 scoreboard players set #TimeLib.NextSecondStart TimeLib.Tick 20
 $scoreboard players remove #TimeLib.NextSecondStart TimeLib.Tick $(Tick)
 execute store result storage timelib:zprivate calc.Result.NextSecondStart byte 1 run scoreboard players get #TimeLib.NextSecondStart TimeLib.Tick

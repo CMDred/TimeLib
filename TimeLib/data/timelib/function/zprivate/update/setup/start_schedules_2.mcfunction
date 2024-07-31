@@ -1,4 +1,4 @@
-#Calculate macros for schedules
+# Calculate macros for schedules
 $scoreboard players set #TimeLib.CommandBlock TimeLib.Second $(Second)
 $scoreboard players set #TimeLib.CommandBlock TimeLib.Minute $(Minute)
 $scoreboard players set #TimeLib.CommandBlock TimeLib.Hour $(Hour)

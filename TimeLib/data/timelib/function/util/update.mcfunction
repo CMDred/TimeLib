@@ -12,7 +12,7 @@
 ##       performance cost.                            ##
 ########################################################
 
-#Stop Schedule Loops
+# Stop Schedule Loops
 schedule clear timelib:zprivate/timer_1s
 schedule clear timelib:zprivate/timer_1min
 schedule clear timelib:zprivate/timer_1h
@@ -22,7 +22,7 @@ schedule clear timelib:zprivate/singleplayer/timer_1s
 
 schedule clear timelib:zprivate/daylight_savings_time_checks/timer_1h
 
-#Update Unix Time (Setup)
+# Update Unix Time (Setup)
 scoreboard players set #TimeLib.CommandBlock TimeLib 0
 scoreboard players set #TimeLib.PlayerHead TimeLib 0
 schedule clear timelib:zprivate/update/setup/tick_loop
