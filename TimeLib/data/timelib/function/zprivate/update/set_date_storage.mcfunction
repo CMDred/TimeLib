@@ -9,7 +9,7 @@ execute if score #TimeLib TimeLib.Day matches 7 run data modify storage timelib:
 execute if score #TimeLib TimeLib.Day matches 8 run data modify storage timelib:date Day set value '08'
 execute if score #TimeLib TimeLib.Day matches 9 run data modify storage timelib:date Day set value '09'
 execute if score #TimeLib TimeLib.Day matches 10.. store result storage timelib:date Day byte 1 run scoreboard players get #TimeLib TimeLib.Day
-data modify storage timelib:date Day set string storage timelib:date Day 0 -1
+execute if score #TimeLib TimeLib.Day matches 10.. run data modify storage timelib:date Day set string storage timelib:date Day 0 -1
 
 execute if score #TimeLib TimeLib.WeekDay matches 1 run data modify storage timelib:date WeekDay set value 'Monday'
 execute if score #TimeLib TimeLib.WeekDay matches 2 run data modify storage timelib:date WeekDay set value 'Tuesday'
