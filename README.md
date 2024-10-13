@@ -33,7 +33,7 @@ Every time the date changes (or TimeLib updates the time), the function tag `#ti
 **Note:** Any output is automatically adjusted for the timezone specified in the first two settings.
 - Set the scoreboard `TimeLib` of the player `#TimeLib.Input` as the input.
 - Run `/function timelib:util/get_date`.
-- The output values will be stored inside the player `TimeLib.Output`.
+- The output values will be stored inside the player `#TimeLib.Output`'s `TimeLib.XXX` scores, as well as the `timelib:output` data storage.
 
 ## How it works
 TimeLib combines the with Base64 encoded Unix Timestamp found within player heads with the daytime found within command block outputs to get the current date & time. To achieve tick accuracy, TimeLib checks a repeating command block's time output every tick to see when it changes. At that point it uses several calculations & the macros introduced in 1.20.2 to schedule functions to run when the next second, minute, hour and day passes. This means that once time is synced, almost no further commands are needed.
