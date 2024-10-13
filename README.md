@@ -10,7 +10,7 @@ A Minecraft Data Pack library that lets you get the real life date & time ingame
 - Convert any Unix Timestamp into a date & time.
 
 ## How to use
-TimeLib automatically keeps track of the date & time for you. For that to work, you first need to configure the settings to your personal taste. To access the settings, click the message that appears in chat after reloading or manually run `/function timelib:util/settings`.
+TimeLib automatically keeps track of the date & time for you. For that to work, you first need to configure the settings to your personal taste. To access the settings, click the message that appears in chat after reloading or manually running `/function timelib:util/settings`.
 ### Settings
 - `Command Block Offset` (value): This setting specifies the time difference between the UTC timezone and your system time. Example: If your system clock is 1 hour behind compared to the UTC timezone, the setting's value would have to be set to -1.
 - `Timezone Offset` (value): This setting specifies the time difference between your system time and your desired timezone. Example: If your desired timezone is 2 hours ahead of your system clock, the setting's value would have to be set to 2.
