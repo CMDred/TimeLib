@@ -21,7 +21,7 @@ TimeLib automatically keeps track of the date & time for you. For that to work, 
   - If `Off` is selected, daylight savings time will only be checked for every time the function `timelib:util/update` is run, either manually or by other functions in the Data Pack (e.g. on reload or when changing settings).
   - If `Hourly` is selected, daylight savings time will be checked for every hour. This comes at a very small performance cost. The correct time will be displayed **2 ingame ticks** after the hour changes.
 ### Get the real life date & time
-The values for Year, Month, Day, Week Day, Hour, Minute, Second & the Unix Timestamp are all stored inside the player `TimeLib`, with each value having its own scoreboard objective:
+The values for Year, Month, Day, Week Day, Hour, Minute, Second & the Unix Timestamp are all stored inside the player `#TimeLib`, with each value having its own scoreboard objective:
 - `TimeLib.Year, TimeLib.Month, TimeLib.Day, TimeLib.WeekDay, TimeLib.Hour, TimeLib.Minute, TimeLib.Second & TimeLib.UnixTime`
 
 Additionally, string versions of the Day, WeekDay and Month are stored in the `timelib:date` storage.
