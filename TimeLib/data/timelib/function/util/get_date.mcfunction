@@ -9,35 +9,36 @@
 ## Note: It automatically adjusts for the timezone.               ##
 ####################################################################
 
-# Add Timezone Offset
+# Add timezone offset
 scoreboard players operation #TimeLib.Calc TimeLib.UnixTime = #TimeLib.Input TimeLib
 
-# Get Days Total
+# Get days total
 scoreboard players operation #TimeLib.Calc TimeLib = #TimeLib.Calc TimeLib.UnixTime
 scoreboard players operation #TimeLib.Calc TimeLib /= #c86400 Constant
 
-# Get Days In The Current 4 Year Cycle
+# Get days in the current 4-year cycle
 scoreboard players operation #TimeLib.Output TimeLib.Day = #TimeLib.Calc TimeLib
 execute store result storage timelib:zprivate calc.Days short 1 run scoreboard players operation #TimeLib.Output TimeLib.Day %= #c1461 Constant
 
-# Get Weekday
+# Get weekday
 scoreboard players operation #TimeLib.Output TimeLib.WeekDay = #TimeLib.Calc TimeLib
 scoreboard players add #TimeLib.Output TimeLib.WeekDay 4
 scoreboard players operation #TimeLib.Output TimeLib.WeekDay %= #c7 Constant
 execute if score #TimeLib.Output TimeLib.WeekDay matches 0 run scoreboard players set #TimeLib.Output TimeLib.WeekDay 7
 
-# Get Date Within The Year
+# Get date within the year
 function timelib:zprivate/get_date/main with storage timelib:zprivate calc
-execute store result score #TimeLib.Output TimeLib.Day run data get storage timelib:zprivate calc.Date.Day
-execute store result score #TimeLib.Output TimeLib.Month run data get storage timelib:zprivate calc.Date.Month
-execute store result score #TimeLib.Output TimeLib.Year run data get storage timelib:zprivate calc.Date.Year
+execute store result score #TimeLib.Output TimeLib.Day run data get storage timelib:zprivate calc.Date[2]
+execute store result score #TimeLib.Output TimeLib.Month run data get storage timelib:zprivate calc.Date[1]
+execute store result score #TimeLib.Output TimeLib.Year run data get storage timelib:zprivate calc.Date[0]
+execute store result storage timelib:output Year short 1 run scoreboard players add #TimeLib.Output TimeLib.Year 1970
 
-# Get Current Year
+# Get current year
 scoreboard players operation #TimeLib.Calc TimeLib /= #c1461 Constant
 scoreboard players operation #TimeLib.Calc TimeLib *= #c4 Constant
 scoreboard players operation #TimeLib.Output TimeLib.Year += #TimeLib.Calc TimeLib
 
-# Get Time
+# Get daytime
 scoreboard players operation #TimeLib.Output TimeLib.Second = #TimeLib.Calc TimeLib.UnixTime
 scoreboard players operation #TimeLib.Output TimeLib.Second %= #c86400 Constant
 scoreboard players operation #TimeLib.Output TimeLib.Hour = #TimeLib.Output TimeLib.Second
@@ -82,5 +83,3 @@ execute if score #TimeLib.Output TimeLib.Month matches 10 run data modify storag
 execute if score #TimeLib.Output TimeLib.Month matches 11 run data modify storage timelib:output Month set value 'November'
 execute if score #TimeLib.Output TimeLib.Month matches 12 run data modify storage timelib:output Month set value 'December'
 data modify storage timelib:output MonthShort set string storage timelib:output Month 0 3
-
-execute store result storage timelib:output Year short 1 run scoreboard players get #TimeLib.Output TimeLib.Year

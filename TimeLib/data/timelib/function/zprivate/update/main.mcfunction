@@ -26,7 +26,7 @@ scoreboard players operation #TimeLib.Check TimeLib -= #TimeLib.Calc TimeLib.Uni
 scoreboard players operation #TimeLib.Check TimeLib -= #TimeLib.Settings.CommandBlockOffset TimeLib
 execute if score #TimeLib.Check TimeLib matches ..-3601 run scoreboard players add #TimeLib TimeLib.UnixTime 86400
 
-# Get Date using the Unix Timestamp
+# Get date using the Unix Timestamp
 scoreboard players operation #TimeLib.Input TimeLib = #TimeLib TimeLib.UnixTime
 function timelib:util/get_date
 scoreboard players operation #TimeLib TimeLib.Year = #TimeLib.Output TimeLib.Year
