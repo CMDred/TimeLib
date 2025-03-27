@@ -1,5 +1,8 @@
 # TimeLib
-A Minecraft Data Pack library that lets you get the real life date & time ingame. For inquiries, please contact **@silicatYT** on Discord.
+A Minecraft Data Pack library that lets you get the real life date & time ingame. For inquiries, please contact **@silicatYT** on Discord.\
+\
+Download: [Modrinth](https://modrinth.com/datapack/timelib)\
+Issue tracker: [GitHub](https://github.com/CMDred/TimeLib)
 
 ## Features
 - Get the real life date & time:
