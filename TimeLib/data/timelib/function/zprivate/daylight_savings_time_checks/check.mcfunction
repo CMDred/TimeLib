@@ -1,5 +1,5 @@
 # Check if daylight savings time has to be applied
-data modify storage timelib:zprivate cmd_block.Time.Hour set string block 29999983 1 29999983 LastOutput 10 12
+data modify storage timelib:zprivate cmd_block.Time.Hour set string block 29999983 1 29999983 LastOutput.text 1 3
 function timelib:zprivate/daylight_savings_time_checks/set_cmd_block_time with storage timelib:zprivate cmd_block.Time
 setblock 29999983 1 29999983 minecraft:air
 
