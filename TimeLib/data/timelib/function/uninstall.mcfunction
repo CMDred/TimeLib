@@ -1,12 +1,12 @@
-# Check
+# Check if TimeLib is installed
 scoreboard objectives add TimeLib.Uninstall dummy
 execute store success score #TimeLib TimeLib.Uninstall run scoreboard objectives remove TimeLib
-execute if score #TimeLib TimeLib.Uninstall matches 0 run tellraw @a ["",{text:"🕒 TimeLib >> ",color:"#2DE1E1"},{text:"⚠ Could not remove TimeLib. Is it already uninstalled?",color:"red"}]
+execute if score #TimeLib TimeLib.Uninstall matches 0 run tellraw @a ["",{text:"🕒 TimeLib >> ",color:"#2DE1E1"},{text:"⚠ Could not remove TimeLib. Is it installed?",color:"red"}]
 execute if score #TimeLib TimeLib.Uninstall matches 0 run return run scoreboard objectives remove TimeLib.Uninstall
 scoreboard objectives remove TimeLib.Uninstall
 
 # Tellraw
-tellraw @a [{text:"🕒 TimeLib >> ",color:"#2DE1E1"},{text:"Uninstalled TimeLib (v1.3.0)",color:"white"},"\n",{text:"🕒 TimeLib >> ",color:"#2DE1E1"},{text:"⚠ Due to compatibility reasons, the 'Constant' scoreboard objective, the shulker box at 29999983 0 29999983 and the forceloaded chunk at 29999983 29999983 were not automatically removed!",color:"red"}]
+tellraw @a [{text:"🕒 TimeLib >> ",color:"#2DE1E1"},{text:"Uninstalled TimeLib (v2.0.0)",color:"white"}]
 
 # Remove scoreboards
 scoreboard objectives remove TimeLib.UnixTime
@@ -18,42 +18,52 @@ scoreboard objectives remove TimeLib.Hour
 scoreboard objectives remove TimeLib.Minute
 scoreboard objectives remove TimeLib.Second
 
-scoreboard objectives remove TimeLib.Tick
-scoreboard objectives remove TimeLib.TotalWorldTime
-
-# Remove fake players
-scoreboard players reset #TimeLib.Init
-scoreboard players reset #TimeLib.Check
+# Reset fake players
 scoreboard players reset #TimeLib
-scoreboard players reset #TimeLib.Input
-scoreboard players reset #TimeLib.Output
-scoreboard players reset #TimeLib.NextSecondStart
-scoreboard players reset #TimeLib.Calc
-scoreboard players reset #TimeLib.NextSecondStart
-scoreboard players reset #TimeLib.NextMinuteStart
-scoreboard players reset #TimeLib.NextHourStart
-scoreboard players reset #TimeLib.NextDayStart
-scoreboard players reset #TimeLib.PlayerHead
-scoreboard players reset #TimeLib.CommandBlock
 scoreboard players reset #TimeLib.Settings.CommandBlockOffset
 scoreboard players reset #TimeLib.Settings.TimeZoneOffset
-scoreboard players reset #TimeLib.Settings.RealtimeTracking
-scoreboard players reset #TimeLib.Settings.SavingsTimeChecks
 scoreboard players reset #TimeLib.Settings.ShowLoadMessage
 
+scoreboard players reset #TimeLib.4
+scoreboard players reset #TimeLib.7
+scoreboard players reset #TimeLib.24
+scoreboard players reset #TimeLib.60
+scoreboard players reset #TimeLib.1461
+scoreboard players reset #TimeLib.3600
+scoreboard players reset #TimeLib.86400
+
+scoreboard players reset #TimeLib.DaytimeChanged
+scoreboard players reset #TimeLib.UnixTimestampChanged
+scoreboard players reset #TimeLib.HourChanged
+scoreboard players reset #TimeLib.MinuteChanged
+scoreboard players reset #TimeLib.SecondChanged
+scoreboard players reset #TimeLib.DaytimeInSeconds.Hours
+scoreboard players reset #TimeLib.DaytimeInSeconds.Minutes
+scoreboard players reset #TimeLib.LatestUnixTimestamp.Daytime
+scoreboard players reset #TimeLib.LatestUnixTimestamp
+scoreboard players reset #TimeLib.Current
+scoreboard players reset #TimeLib.Previous
+scoreboard players reset #TimeLib.CommandBlock.Daytime
+scoreboard players reset #TimeLib.Calc
+scoreboard players reset #TimeLib.Output
+
 # Remove data storages
-data remove storage timelib:zprivate days_list
-data remove storage timelib:zprivate b64
-data remove storage timelib:zprivate cmd_block
-data remove storage timelib:zprivate calc
+data remove storage timelib:zprivate Base64
+data remove storage timelib:zprivate Days
+data remove storage timelib:zprivate CommandBlock
+data remove storage timelib:date WeekDay
+data remove storage timelib:date WeekDayShort
+data remove storage timelib:date Month
+data remove storage timelib:date MonthShort
+data remove storage timelib:date Day
+data remove storage timelib:date Year
+data remove storage timelib:output WeekDay
+data remove storage timelib:output WeekDayShort
+data remove storage timelib:output Month
+data remove storage timelib:output MonthShort
+data remove storage timelib:output Day
+data remove storage timelib:output Year
 
-# Stop schedule loops
-schedule clear timelib:zprivate/timer_1s
-schedule clear timelib:zprivate/timer_1min
-schedule clear timelib:zprivate/timer_1h
-schedule clear timelib:zprivate/timer_1d
-
-schedule clear timelib:zprivate/singleplayer/pause/detect
-schedule clear timelib:zprivate/singleplayer/timer_1s
-
-schedule clear timelib:zprivate/daylight_savings_time_checks/timer_1h
+# Clear the void dimension
+execute in timelib:void run fill 0 0 0 0 1 0 minecraft:air
+execute in timelib:void run forceload remove 0 0

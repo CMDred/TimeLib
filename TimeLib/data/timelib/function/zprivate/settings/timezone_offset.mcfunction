@@ -1,11 +1,28 @@
-playsound minecraft:ui.button.click master @s ~ ~ ~ 1 2 1
-$scoreboard players set #TimeLib.Temporary TimeLib $(Offset)
-scoreboard players operation #TimeLib.Temporary TimeLib *= #c3600 Constant
-execute if score #TimeLib.Settings.TimeZoneOffset TimeLib = #TimeLib.Temporary TimeLib run tellraw @s [{text:"🕒 TimeLib >> ",color:"#2DE1E1"},{text:"This setting already has this value.",color:"red"}]
-execute if score #TimeLib.Settings.TimeZoneOffset TimeLib = #TimeLib.Temporary TimeLib run return run scoreboard players reset #TimeLib.Temporary
-scoreboard players operation #TimeLib.Settings.TimeZoneOffset TimeLib = #TimeLib.Temporary TimeLib
-scoreboard players reset #TimeLib.Temporary
-tellraw @s "\n\n\n\n\n\n\n\n\n\n\n\n\n"
-function timelib:util/settings
-tellraw @s ["",{text:"🕒 TimeLib >> ",color:"#2DE1E1"},{text:"Successfully updated the Timezone Offset."}]
-function timelib:util/update
+# Set the Timezone Offset & update the unix timestamp
+# (Important): The timezone offset is already added to the "base" unix timestamp which is responsible for the date, so all I have to do is update the unix timestamp after setting the TimeZoneOffset and manually set the value for 'Hour'.
+$scoreboard players set #TimeLib.Temp TimeLib $(Hours)
+
+    # Update the 'Hour' score
+    scoreboard players operation #TimeLib.Calc TimeLib = #TimeLib.Settings.TimeZoneOffset TimeLib
+    scoreboard players operation #TimeLib.Calc TimeLib /= #TimeLib.3600 TimeLib
+    scoreboard players operation #TimeLib TimeLib.Hour -= #TimeLib.Calc TimeLib
+
+    scoreboard players operation #TimeLib TimeLib.Hour += #TimeLib.Temp TimeLib
+    scoreboard players operation #TimeLib TimeLib.Hour %= #TimeLib.24 TimeLib
+
+    scoreboard players operation #TimeLib.DaytimeInSeconds.Hours TimeLib = #TimeLib TimeLib.Hour
+    scoreboard players operation #TimeLib.DaytimeInSeconds.Hours TimeLib *= #TimeLib.3600 TimeLib
+
+scoreboard players operation #TimeLib.LatestUnixTimestamp TimeLib -= #TimeLib.Settings.CommandBlockOffset TimeLib
+scoreboard players operation #TimeLib.LatestUnixTimestamp TimeLib -= #TimeLib.Settings.TimeZoneOffset TimeLib
+
+scoreboard players add #TimeLib.LatestUnixTimestamp.Daytime TimeLib 3600
+scoreboard players operation #TimeLib.LatestUnixTimestamp TimeLib += #TimeLib.LatestUnixTimestamp.Daytime TimeLib
+
+scoreboard players operation #TimeLib.Settings.TimeZoneOffset TimeLib = #TimeLib.Temp TimeLib
+scoreboard players operation #TimeLib.Settings.TimeZoneOffset TimeLib *= #TimeLib.3600 TimeLib
+function timelib:zprivate/update_time/get_unix_timestamp/update
+
+scoreboard players reset #TimeLib.Temp
+
+function timelib:zprivate/settings/select

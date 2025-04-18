@@ -1,6 +1,6 @@
 {
   "pack": {
       "pack_format": 71,
-      "description": "Data Pack Utility for getting the real life date & time efficiently. Created by CMDred."
+      "description": "Data Pack library for getting the real life date & time.\nCreated by CMDred."
   }
 }
