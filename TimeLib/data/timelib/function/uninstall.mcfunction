@@ -57,6 +57,9 @@ data remove storage timelib:date Month
 data remove storage timelib:date MonthShort
 data remove storage timelib:date Day
 data remove storage timelib:date Year
+data remove storage timelib:daytime Hour
+data remove storage timelib:daytime Minute
+data remove storage timelib:daytime Second
 data remove storage timelib:output WeekDay
 data remove storage timelib:output WeekDayShort
 data remove storage timelib:output Month
