@@ -47,7 +47,7 @@ From CMDred:
 ## Good to know
 - TimeLib requires an internet connection.
 - When starting the server or world, it takes a second for time to update. Any checks that happen during that time are wrong.
-- If your Data Pack uses a forceloaded chunk at `29999983 29999983` in the overworld, there may be collision.
+- If your Data Pack uses a forceloaded chunk at `29999999 29999999` in the overworld, there may be collision.
 - TimeLib uses the [lantern load](https://github.com/LanternMC/load) library that lets you control the order in which data packs load.
 
 ## License
