@@ -6,7 +6,7 @@ execute if score #TimeLib TimeLib.Uninstall matches 0 run return run scoreboard 
 scoreboard objectives remove TimeLib.Uninstall
 
 # Tellraw
-tellraw @a ["",{text:"🕒 TimeLib >> ",color:"#2DE1E1"},"Uninstalled TimeLib (v2.0.0)\n",{text:"🕒 TimeLib >> ",color:"#2DE1E1"},{text:"⚠ Removed the following things (Overworld):\n- Block at 29999983 0 29999983\n- Block at 29999983 1 29999983\n- Forceload at 29999983 29999983",color:"red"}]
+tellraw @a ["",{text:"🕒 TimeLib >> ",color:"#2DE1E1"},"Uninstalled TimeLib (v2.0.0)\n",{text:"🕒 TimeLib >> ",color:"#2DE1E1"},{text:"⚠ Removed the following things (Overworld):\n- Block at 29999999 0 29999999\n- Block at 29999999 1 29999999\n- Forceload at 29999999 29999999",color:"red"}]
 
 # Remove scoreboards
 scoreboard objectives remove TimeLib.UnixTime
@@ -65,5 +65,5 @@ data remove storage timelib:output Day
 data remove storage timelib:output Year
 
 # Remove the blocks and forceload
-execute in minecraft:overworld run fill 29999983 0 29999983 29999983 1 29999983 minecraft:air
-execute in minecraft:overworld run forceload remove 29999983 29999983
+execute in minecraft:overworld run fill 29999999 0 29999999 29999999 1 29999999 minecraft:air
+execute in minecraft:overworld run forceload remove 29999999 29999999

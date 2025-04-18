@@ -8,5 +8,5 @@ function timelib:zprivate/update_time/get_unix_timestamp/decode with storage tim
 # Update the date & time
 function timelib:zprivate/update_time/get_unix_timestamp/update
 
-execute in minecraft:overworld run data modify storage timelib:zprivate CommandBlock.Output set from block 29999983 1 29999983 LastOutput.text
+execute in minecraft:overworld run data modify storage timelib:zprivate CommandBlock.Output set from block 29999999 1 29999999 LastOutput.text
 function timelib:zprivate/update_time/main
