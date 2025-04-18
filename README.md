@@ -24,7 +24,7 @@ TimeLib automatically keeps track of the date & time for you. For that to work, 
 The values for Year, Month, Day, Week Day, Hour, Minute, Second & the Unix Timestamp are all stored inside the player `#TimeLib`, with each value having its own scoreboard objective:
 - `TimeLib.Year, TimeLib.Month, TimeLib.Day, TimeLib.WeekDay, TimeLib.Hour, TimeLib.Minute, TimeLib.Second & TimeLib.UnixTime`
 
-Additionally, string versions of the Day, WeekDay and Month are stored in the `timelib:date` storage.
+Additionally, string versions (with leading 0s) of the date and daytime are stored in the `timelib:date` and `timelib:daytime` storages.
 
 ### Events
 - `#timelib:date_changed`: Function tag that gets executed whenever the date changes
