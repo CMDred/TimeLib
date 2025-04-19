@@ -57,20 +57,19 @@ data remove storage timelib:zprivate Base64
 data remove storage timelib:zprivate Days
 data remove storage timelib:zprivate CommandBlock
 data remove storage timelib:date WeekDay
-data remove storage timelib:date WeekDayShort
 data remove storage timelib:date Month
-data remove storage timelib:date MonthShort
 data remove storage timelib:date Day
 data remove storage timelib:date Year
 data remove storage timelib:daytime Hour
 data remove storage timelib:daytime Minute
 data remove storage timelib:daytime Second
 data remove storage timelib:output WeekDay
-data remove storage timelib:output WeekDayShort
 data remove storage timelib:output Month
-data remove storage timelib:output MonthShort
 data remove storage timelib:output Day
 data remove storage timelib:output Year
+data remove storage timelib:output Hour
+data remove storage timelib:output Minute
+data remove storage timelib:output Second
 
 # Remove the blocks and forceload
 execute in minecraft:overworld run fill 29999999 0 29999999 29999999 1 29999999 minecraft:air
