@@ -37,10 +37,11 @@ Additionally, string versions (with leading 0s) of the date and daytime are stor
 The tickrate updates once per second and can be read from the `TimeLib.Tickrate` scoreboard objective.
 
 ### &rarr; Convert any Unix Timestamp into a date & time
-**Note:** Any output is automatically adjusted for the timezone specified in the first two settings.
-- Set the scoreboard `TimeLib.UnixTime` of the player `#TimeLib.Input` as the input.
+**Note:** The output date & time are in the UTC timezone, as daylight savings time cannot be properly accounted for.
+
+- Set the `#TimeLib.Input TimeLib.UnixTime` score as the input.
 - Run `/function timelib:util/unix_timestamp_to_date`.
-- The output values will be stored inside the player `#TimeLib.Output`'s `TimeLib.?` scores, as well as the `timelib:output` data storage.
+- The output values will be stored inside the `#TimeLib.Output TimeLib.?` scores, as well as the `timelib:output` data storage.
 
 ## How it works
 - TimeLib combines the with Base64 encoded Unix Timestamp inside player heads with the daytime information inside command block outputs to calculate the current date & time.
