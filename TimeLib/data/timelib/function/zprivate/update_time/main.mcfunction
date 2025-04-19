@@ -17,17 +17,29 @@
     execute if score #TimeLib.CommandBlock.Daytime TimeLib < #TimeLib.LatestUnixTimestamp.Daytime TimeLib run function timelib:zprivate/update_time/get_unix_timestamp/adjust
 
     # Add the command block's daytime to the unix timestamp (timestamp for the start of the day)
-    execute store result score #TimeLib.Current TimeLib.UnixTime run scoreboard players operation #TimeLib TimeLib.UnixTime = #TimeLib.LatestUnixTimestamp TimeLib
+    execute store result score #TimeLib.CurrentDayUnixTime TimeLib run scoreboard players operation #TimeLib TimeLib.UnixTime = #TimeLib.LatestUnixTimestamp TimeLib
     scoreboard players operation #TimeLib TimeLib.UnixTime += #TimeLib.CommandBlock.Daytime TimeLib
 
     # Remove the CommandBlockOffset & TimeZoneOffset from the unix timestamp
     scoreboard players operation #TimeLib TimeLib.UnixTime -= #TimeLib.Settings.CommandBlockOffset TimeLib
-    scoreboard players operation #TimeLib TimeLib.UnixTime -= #TimeLib.Settings.TimeZoneOffset TimeLib
+    execute store result score #TimeLib.Calc TimeLib run scoreboard players operation #TimeLib TimeLib.UnixTime -= #TimeLib.Settings.TimeZoneOffset TimeLib
+
+# Get the TPS
+# (Important): Divide the ticks since the last daytime change by the unix time difference.
+# (Important): The number of ticks since the last daytime change is also adjusted after unpausing the game to ensure a more appropriate result. If I didn't do that and didn't divide by the unix time difference, there would be 2 ticks with the wrong TPS rather than 1.
+# (Important): One problem is that the time until the next "update_time" call will be affected by the pausing, and I'm not sure there's a good way to fix this without making assumptions.
+scoreboard players operation #TimeLib.Calc TimeLib -= #TimeLib.Previous TimeLib.UnixTime
+
+scoreboard players operation #TimeLib TimeLib.Tickrate = #TimeLib.TicksSinceDaytimeChange TimeLib
+scoreboard players operation #TimeLib TimeLib.Tickrate /= #TimeLib.Calc TimeLib
+
+scoreboard players set #TimeLib.TicksSinceDaytimeChange TimeLib 0
+scoreboard players operation #TimeLib.Previous TimeLib.UnixTime = #TimeLib TimeLib.UnixTime
 
 # Run the '#timelib:daytime_changed' event
 function #timelib:daytime_changed
 
 # Update the date storages and run the '#timelib:date_changed' event if the date changed
 # (Important): It changed if the previous tick's "Unix Timestamp without daytime" is different from the current.
-execute unless score #TimeLib.Current TimeLib.UnixTime = #TimeLib.Previous TimeLib.UnixTime run function timelib:zprivate/update_time/set_date_storage
-scoreboard players operation #TimeLib.Previous TimeLib.UnixTime = #TimeLib.LatestUnixTimestamp TimeLib
+execute unless score #TimeLib.CurrentDayUnixTime TimeLib = #TimeLib.PreviousDayUnixTime TimeLib run function timelib:zprivate/update_time/set_date_storage
+scoreboard players operation #TimeLib.PreviousDayUnixTime TimeLib = #TimeLib.LatestUnixTimestamp TimeLib

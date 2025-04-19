@@ -9,5 +9,12 @@
     execute if score #TimeLib.UnixTimestampChanged TimeLib matches 1 run return run function timelib:zprivate/update_time/get_unix_timestamp/main
 
     # Check if the daytime has changed
+        # Get TPS
+        # (Important): Keep track of the ticks between each daytime change to get the TPS.
+        # (Important): Because of execution order, players leaving the game will have their score set to -1. This means a player leaving and rejoining cannot cause the game to think it was paused.
+        scoreboard players add #TimeLib.TicksSinceDaytimeChange TimeLib 1
+        execute as @a[scores={TimeLib.Internal.TotalWorldTime=1..},limit=1] run function timelib:zprivate/game_unpaused
+        scoreboard players set @a TimeLib.Internal.TotalWorldTime -1
+
     execute in minecraft:overworld store success score #TimeLib.DaytimeChanged TimeLib run data modify storage timelib:zprivate CommandBlock.Output set from block 29999999 1 29999999 LastOutput.text
     execute if score #TimeLib.DaytimeChanged TimeLib matches 1 run function timelib:zprivate/update_time/main

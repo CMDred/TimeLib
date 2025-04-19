@@ -1,5 +1,5 @@
 # Tellraw
-tellraw @a ["",{text:"🕒 TimeLib >> ",color:"#2DE1E1"},"Installed TimeLib (v2.0.0)"]
+tellraw @a ["",{text:"🕒 TimeLib >> ",color:"#2DE1E1"},"Installed TimeLib (v2.1.0)"]
 
 # Init
 scoreboard players set #TimeLib TimeLib 1
@@ -13,6 +13,9 @@ scoreboard objectives add TimeLib.Day dummy
 scoreboard objectives add TimeLib.Hour dummy
 scoreboard objectives add TimeLib.Minute dummy
 scoreboard objectives add TimeLib.Second dummy
+scoreboard objectives add TimeLib.Tickrate dummy
+scoreboard objectives add TimeLib.Internal.TotalWorldTime minecraft.custom:minecraft.total_world_time
+scoreboard objectives add TimeLib.PausedTicks dummy
 
 # Settings
 scoreboard players set #TimeLib.Settings.CommandBlockOffset TimeLib 0

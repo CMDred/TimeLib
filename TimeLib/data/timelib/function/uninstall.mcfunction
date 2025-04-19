@@ -6,7 +6,7 @@ execute if score #TimeLib TimeLib.Uninstall matches 0 run return run scoreboard 
 scoreboard objectives remove TimeLib.Uninstall
 
 # Tellraw
-tellraw @a ["",{text:"🕒 TimeLib >> ",color:"#2DE1E1"},"Uninstalled TimeLib (v2.0.0)\n",{text:"🕒 TimeLib >> ",color:"#2DE1E1"},{text:"⚠ Removed the following things (Overworld):\n- Block at 29999999 0 29999999\n- Block at 29999999 1 29999999\n- Forceload at 29999999 29999999",color:"red"}]
+tellraw @a [{text:"",color:"red"},{text:"🕒 TimeLib >> ",color:"#2DE1E1"},{text:"Uninstalled TimeLib (v2.1.0)\n",color:"white"},"⚠ Removed the following things (Overworld):\n- Block at 29999999 0 29999999\n- Block at 29999999 1 29999999\n- Forceloaded chunk at 29999999 29999999\n\n","⚠ Did not remove:\n- 'load.status' scoreboard from the 'Lantern Load' library"]
 
 # Remove scoreboards
 scoreboard objectives remove TimeLib.UnixTime
@@ -17,6 +17,9 @@ scoreboard objectives remove TimeLib.Day
 scoreboard objectives remove TimeLib.Hour
 scoreboard objectives remove TimeLib.Minute
 scoreboard objectives remove TimeLib.Second
+scoreboard objectives remove TimeLib.Tickrate
+scoreboard objectives remove TimeLib.Internal.TotalWorldTime
+scoreboard objectives remove TimeLib.PausedTicks
 
 # Reset fake players
 scoreboard players reset #TimeLib
@@ -41,11 +44,13 @@ scoreboard players reset #TimeLib.DaytimeInSeconds.Hours
 scoreboard players reset #TimeLib.DaytimeInSeconds.Minutes
 scoreboard players reset #TimeLib.LatestUnixTimestamp.Daytime
 scoreboard players reset #TimeLib.LatestUnixTimestamp
-scoreboard players reset #TimeLib.Current
+scoreboard players reset #TimeLib.CurrentDayUnixTime
+scoreboard players reset #TimeLib.PreviousDayUnixTime
 scoreboard players reset #TimeLib.Previous
 scoreboard players reset #TimeLib.CommandBlock.Daytime
 scoreboard players reset #TimeLib.Calc
 scoreboard players reset #TimeLib.Output
+scoreboard players reset #TimeLib.TicksSinceDaytimeChange
 
 # Remove data storages
 data remove storage timelib:zprivate Base64
