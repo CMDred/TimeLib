@@ -17,7 +17,7 @@ Report bugs: [GitHub](https://github.com/CMDred/TimeLib)
 ## How to use
 TimeLib automatically keeps track of the date & time for you. For that to work, you first need to configure the settings to your personal taste. To access the settings, click the message that appears in chat after reloading, or manually run `/function timelib:util/settings`.
 ### &rarr; Settings
-- `Command Block Offset`: This is required to offset the time difference between the UTC timezone and your system time.
+- `Command Block Offset`: This is required to offset the time difference between the UTC timezone and your system time. If daylight savings change, this setting needs to be adjusted to ensure that the date calculation works properly.
   - **Example:** UTC (7pm), System clock (8pm) &rarr; Use 1h
 - `Timezone Offset`: Use this to change the displayed time.
   - **Example:** 8pm + 1h offset &rarr; 9pm
