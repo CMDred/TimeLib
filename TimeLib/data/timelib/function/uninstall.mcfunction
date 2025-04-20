@@ -50,7 +50,7 @@ scoreboard players reset #TimeLib.Previous
 scoreboard players reset #TimeLib.CommandBlock.Daytime
 scoreboard players reset #TimeLib.Calc
 scoreboard players reset #TimeLib.Output
-scoreboard players reset #TimeLib.TicksSinceDaytimeChange
+scoreboard players reset #TimeLib.PreviousGametime
 
 # Remove data storages
 data remove storage timelib:zprivate Base64

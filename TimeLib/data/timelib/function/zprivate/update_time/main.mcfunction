@@ -30,10 +30,11 @@
 # (Important): One problem is that the time until the next "update_time" call will be affected by the pausing, and I'm not sure there's a good way to fix this without making assumptions.
 scoreboard players operation #TimeLib.Calc TimeLib -= #TimeLib.Previous TimeLib.UnixTime
 
-scoreboard players operation #TimeLib TimeLib.Tickrate = #TimeLib.TicksSinceDaytimeChange TimeLib
+execute store result score #TimeLib TimeLib.Tickrate run time query gametime
+scoreboard players operation #TimeLib TimeLib.Tickrate -= #TimeLib.PreviousGametime TimeLib
 scoreboard players operation #TimeLib TimeLib.Tickrate /= #TimeLib.Calc TimeLib
 
-scoreboard players set #TimeLib.TicksSinceDaytimeChange TimeLib 0
+execute store result score #TimeLib.PreviousGametime TimeLib run time query gametime
 scoreboard players operation #TimeLib.Previous TimeLib.UnixTime = #TimeLib TimeLib.UnixTime
 
 # Run the '#timelib:daytime_changed' event

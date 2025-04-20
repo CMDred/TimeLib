@@ -1,5 +1,5 @@
-# Adjust the "TicksSinceDaytimeChange" score to take the paused time into account
-scoreboard players operation #TimeLib.TicksSinceDaytimeChange TimeLib += @s TimeLib.Internal.TotalWorldTime
+# Adjust the 'PreviousGametime' score to take the paused time into account
+scoreboard players operation #TimeLib.PreviousGametime TimeLib -= @s TimeLib.Internal.TotalWorldTime
 
 # Run the '#timelib:game_unpaused' event
 # (Important): The number of ticks the game has been paused for can be read in the '#TimeLib TimeLib.PausedTicks' score.
