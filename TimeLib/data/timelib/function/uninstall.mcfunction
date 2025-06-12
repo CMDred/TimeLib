@@ -6,7 +6,7 @@ execute if score #TimeLib TimeLib.Uninstall matches 0 run return run scoreboard 
 scoreboard objectives remove TimeLib.Uninstall
 
 # Tellraw
-tellraw @a [{text:"",color:"red"},{text:"🕒 TimeLib >> ",color:"#2DE1E1"},{text:"Uninstalled TimeLib (v2.1.0)\n",color:"white"},"⚠ Removed the following things (Overworld):\n- Block at 29999999 0 29999999\n- Block at 29999999 1 29999999\n- Forceloaded chunk at 29999999 29999999\n\n","⚠ Did not remove:\n- 'load.status' scoreboard from the 'Lantern Load' library"]
+tellraw @a [{text:"",color:"red"},{text:"🕒 TimeLib >> ",color:"#2DE1E1"},{text:"Uninstalled TimeLib (v2.2.0)\n",color:"white"},"⚠ Removed the following things (Overworld):\n- Block at 29999999 0 29999999\n- Block at 29999999 1 29999999\n- Forceloaded chunk at 29999999 29999999\n\n","⚠ Did not remove:\n- 'load.status' scoreboard from the 'Lantern Load' library"]
 
 # Remove scoreboards
 scoreboard objectives remove TimeLib.UnixTime
