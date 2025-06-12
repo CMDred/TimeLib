@@ -2,7 +2,7 @@
 scoreboard players operation #TimeLib.PreviousGametime TimeLib -= @s TimeLib.Internal.TotalWorldTime
 
 # Run the '#timelib:game_unpaused' event
-# (Important): The number of ticks the game has been paused for can be read in the '#TimeLib TimeLib.PausedTicks' score.
-scoreboard players operation #TimeLib TimeLib.PausedTicks = @s TimeLib.Internal.TotalWorldTime
+# (Important): The number of ticks the game has been paused for can be read in '#TimeLib.PausedTicks TimeLib'.
+scoreboard players operation #TimeLib.PausedTicks TimeLib = @s TimeLib.Internal.TotalWorldTime
 function #timelib:game_unpaused
-scoreboard players reset #TimeLib TimeLib.PausedTicks
+scoreboard players reset #TimeLib.PausedTicks

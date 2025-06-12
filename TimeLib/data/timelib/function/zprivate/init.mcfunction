@@ -15,7 +15,6 @@ scoreboard objectives add TimeLib.Minute dummy
 scoreboard objectives add TimeLib.Second dummy
 scoreboard objectives add TimeLib.Tickrate dummy
 scoreboard objectives add TimeLib.Internal.TotalWorldTime minecraft.custom:minecraft.total_world_time
-scoreboard objectives add TimeLib.PausedTicks dummy
 
 # Settings
 scoreboard players set #TimeLib.Settings.CommandBlockOffset TimeLib 0

@@ -19,7 +19,6 @@ scoreboard objectives remove TimeLib.Minute
 scoreboard objectives remove TimeLib.Second
 scoreboard objectives remove TimeLib.Tickrate
 scoreboard objectives remove TimeLib.Internal.TotalWorldTime
-scoreboard objectives remove TimeLib.PausedTicks
 
 # Reset fake players
 scoreboard players reset #TimeLib

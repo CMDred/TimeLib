@@ -34,9 +34,9 @@ data modify storage timelib:date Month.Short set string storage timelib:date Mon
 execute store result storage timelib:date Year short 1 run scoreboard players get #TimeLib TimeLib.Year
 
 # Get the number of days that have passed
-# (Important): Necessary because maybe a day has been skipped while the server was offline.
-execute store result score #TimeLib.DaysPassed TimeLib run scoreboard players operation #TimeLib.CurrentDayUnixTime TimeLib -= #TimeLib.PreviousDayUnixTime TimeLib
-scoreboard players operation #TimeLib.DaysPassed TimeLib /= #TimeLib.86400 TimeLib
+# (Important): The number of passed days can be read in '#TimeLib.PassedDays TimeLib'.
+execute store result score #TimeLib.PassedDays TimeLib run scoreboard players operation #TimeLib.CurrentDayUnixTime TimeLib -= #TimeLib.PreviousDayUnixTime TimeLib
+scoreboard players operation #TimeLib.PassedDays TimeLib /= #TimeLib.86400 TimeLib
 
 # Run event
 function #timelib:date_changed
