@@ -9,7 +9,7 @@
     execute if score #TimeLib.SecondChanged TimeLib matches 1 run function timelib:zprivate/update_time/get_daytime/second with storage timelib:zprivate CommandBlock.Time
 
     # If the command block's daytime is behind the unix timestamp's daytime by at least 1 hour (1 hour because of daylight savings time), increment the date
-    # (Important): 1 hour (3600 seconds) is already removed from the unix timestamp's daytime in 'get_unix_timestamp'
+    # (Important): 1 hour (3600 seconds) is already removed from the unix timestamp's daytime in 'get_unix_timestamp'.
     scoreboard players operation #TimeLib.CommandBlock.Daytime TimeLib = #TimeLib.DaytimeInSeconds.Hours TimeLib
     scoreboard players operation #TimeLib.CommandBlock.Daytime TimeLib += #TimeLib.DaytimeInSeconds.Minutes TimeLib
     scoreboard players operation #TimeLib.CommandBlock.Daytime TimeLib += #TimeLib TimeLib.Second
@@ -40,7 +40,8 @@ scoreboard players operation #TimeLib.Previous TimeLib.UnixTime = #TimeLib TimeL
 # Run the '#timelib:daytime_changed' event
 function #timelib:daytime_changed
 
-# Update the date storages and run the '#timelib:date_changed' event if the date changed
+# Update the date storages, get the number of days that have passed and run the '#timelib:date_changed' event if the date changed
 # (Important): It changed if the previous tick's "Unix Timestamp without daytime" is different from the current.
 execute unless score #TimeLib.CurrentDayUnixTime TimeLib = #TimeLib.PreviousDayUnixTime TimeLib run function timelib:zprivate/update_time/set_date_storage
 scoreboard players operation #TimeLib.PreviousDayUnixTime TimeLib = #TimeLib.LatestUnixTimestamp TimeLib
+scoreboard players reset #TimeLib.DaysPassed
