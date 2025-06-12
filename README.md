@@ -29,9 +29,11 @@ Additionally, string versions (with leading 0s) of the date and daytime are stor
 
 ### &rarr; Events
 - `#timelib:date_changed`: Function tag that gets executed whenever the date changes
+  - The `#TimeLib.PassedDays TimeLib` scoreboard holds the number of days passed since the last date change
 - `#timelib:daytime_changed`: Function tag that gets executed whenever the daytime changes
+  - The `#TimeLib.PassedSeconds TimeLib` scoreboard holds the number of seconds passed since the last daytime change
 - `#timelib:game_unpaused`: Function tag that gets executed whenever the game unpauses
-  - The `#TimeLib TimeLib.PausedTicks` scoreboard holds the number of ticks the game has been paused for
+  - The `#TimeLib.PausedTicks TimeLib` scoreboard holds the number of ticks the game has been paused for
 
 ### &rarr; Get the tickrate
 The tickrate updates once per second and can be read from the `TimeLib.Tickrate` scoreboard objective.
