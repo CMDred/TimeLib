@@ -1,3 +1,7 @@
+# Lantern Load
+scoreboard players set #TimeLib load.status 1
+scoreboard players set #TimeLib.Version load.status 1
+
 # Init
 scoreboard objectives add TimeLib dummy
 execute unless score #TimeLib TimeLib matches 1 run function timelib:zprivate/init
