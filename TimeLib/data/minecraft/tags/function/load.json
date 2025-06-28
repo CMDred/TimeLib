@@ -1,5 +1,5 @@
 {
   "values": [
-    "timelib:zprivate/load"
+    "#load:_private/load"
   ]
 }
