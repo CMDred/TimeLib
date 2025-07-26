@@ -1,3 +1,5 @@
+schedule function timelib:zprivate/tick 1t
+
 # Update the time
     # Check if the unix timestamp has changed
     # (Important): The player head does not resolve instantly. While unresolved, it will behave as if the unix timestamp hadn't changed, so it won't go backwards in time.

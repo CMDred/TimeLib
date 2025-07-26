@@ -9,9 +9,15 @@
 ## Note: The output is in the UTC timezone to avoid daylight savings.   ##
 ##########################################################################
 
-execute unless score #TimeLib.Input TimeLib.UnixTime matches 0.. run return fail
+# Version error checking
+execute if score #TimeLib.VersionError load.status matches 1 run return run function timelib:zprivate/version_error
+
+# Check if TimeLib is installed
+execute unless score #TimeLib load.status matches 1.. run return run function timelib:zprivate/not_installed_error
 
 # Convert the unix timestamp to date & time
+execute unless score #TimeLib.Input TimeLib.UnixTime matches 0.. run return fail
+
     # Convert to days (in a 4-year cycle consisting of 1461 days)
     scoreboard players operation #TimeLib.Output TimeLib.Day = #TimeLib.Input TimeLib.UnixTime
     execute store result score #TimeLib.Calc TimeLib store result score #TimeLib.Output TimeLib.WeekDay run scoreboard players operation #TimeLib.Output TimeLib.Day /= #TimeLib.86400 TimeLib
