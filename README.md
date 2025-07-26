@@ -29,11 +29,9 @@ Additionally, string versions (with leading 0s) of the date and daytime are stor
 
 ### &rarr; Events
 - `#timelib:date_changed`: Function tag that gets executed whenever the date changes
-  - The `#TimeLib.PassedDays TimeLib` scoreboard holds the number of days passed since the last date change
 - `#timelib:daytime_changed`: Function tag that gets executed whenever the daytime changes
-  - The `#TimeLib.PassedSeconds TimeLib` scoreboard holds the number of seconds passed since the last daytime change
 - `#timelib:game_unpaused`: Function tag that gets executed whenever the game unpauses
-  - The `#TimeLib.PausedTicks TimeLib` scoreboard holds the number of ticks the game has been paused for
+  - The `#TimeLib TimeLib.PausedTicks` scoreboard holds the number of ticks the game has been paused for
 
 ### &rarr; Get the tickrate
 The tickrate updates once per second and can be read from the `TimeLib.Tickrate` scoreboard objective.
@@ -59,9 +57,16 @@ From CMDred:
 
 ## Good to know
 - TimeLib requires an internet connection.
-- Getting the tickrate does not require the use of worldborder shenanigans.
+- Getting the tickrate does not utilize worldborder shenanigans.
 - If your Data Pack uses a forceloaded chunk at `29999999 29999999` in the overworld, there may be collision.
-- TimeLib uses the [lantern load](https://github.com/LanternMC/load) library that lets you control the order in which data packs load.
+- TimeLib (2.3.0 and newer) uses the [lantern load](https://github.com/LanternMC/load) library that lets you check for dependencies. If you follow its conventions:
+  - `#TimeLib load.status`: 1 if TimeLib is installed, otherwise unset
+  - `#TimeLib.Version load.status`: Release-specific number
+- Upgrade to a newer release:
+  - For TimeLib releases **before 2.3.0**: `/function timelib:uninstall`, then replace your current TimeLib version with the new one, then `/reload` to install the new version
+  - For upgrading from **release 2.3.0 or later** to a newer release, there will be a dedicated `upgrade` function to avoid downtime which could potentially lead to bugs if datapacks try to access TimeLib during that timeframe (W.I.P.)
+- TimeLib releases **2.3.0 and later will throw errors and stop working if multiple different releases are installed simultaneously**. This extends to trying to call utility functions.
+  - Similar behaviour occurs when trying to run utility functions after running `/function timelib:uninstall`
 
 ## License
 As per the MIT License, you are allowed to redistribute, modify and use TimeLib as long as we are credited for the original work.
