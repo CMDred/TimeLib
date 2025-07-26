@@ -64,8 +64,8 @@ From CMDred:
   - `#TimeLib.Version load.status`: Release-specific number
 - Upgrade to a newer release:
   - For TimeLib releases **before 2.3.0**: `/function timelib:uninstall`, then replace your current TimeLib version with the new one, then `/reload` to install the new version
-  - For upgrading from **release 2.3.0 or later** to a newer release, there will be a dedicated `upgrade` function to avoid downtime which could potentially lead to bugs if datapacks try to access TimeLib during that timeframe (W.I.P.)
-- TimeLib releases **2.3.0 and later will throw errors and stop working if multiple different releases are installed simultaneously**. This extends to trying to call utility functions.
+  - For upgrading from **release 2.3.0 or later** to a newer release, simply replace the old datapack with the new one
+- (v2.3.0+) TimeLib **throws errors and stops working if multiple different releases are installed simultaneously**. This extends to trying to call utility functions.
   - Similar behaviour occurs when trying to run utility functions after running `/function timelib:uninstall`
 
 ## License
