@@ -1,5 +1,5 @@
 # Tellraw
-tellraw @a ["",{text:"🕒 TimeLib >> ",color:"#2DE1E1"},"Installed TimeLib (v2.3.0)"]
+tellraw @a ["",{text:"🕒 TimeLib >> ",color:"#2DE1E1"},"Installed TimeLib (v2.3.1)"]
 
 # Init
 scoreboard players set #TimeLib TimeLib 1
