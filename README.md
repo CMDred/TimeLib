@@ -1,3 +1,8 @@
+# IMPORTANT NOTICE
+Due to active attempts from Mojang's side to remove the ability to obtain the unix timestamp from player data (which is the only way to get the real life date), TimeLib will __likely__ be discontinued once 1.21.9 releases.\
+I will keep you updated. Thanks for using TimeLib.\
+\- SilicatYT
+
 # TimeLib
 A Minecraft Data Pack library that lets you get the real life date & time ingame. For inquiries, please contact **@silicatYT** on Discord.\
 \
